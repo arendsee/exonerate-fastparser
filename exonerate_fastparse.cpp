@@ -6,6 +6,7 @@
 
 #define BUFFER_SIZE 4096
 
+#include <cstdlib>
 #include <stdio.h>
 #include <string>
 #include <string.h>
@@ -13,44 +14,94 @@
 #include <iostream>
 using namespace std;
 
-void parse_vulgar(string line, bool stop);
+void parse_vulgar_simple(string line, bool stop, char delim);
+void parse_vulgar_fulltab(string line, bool stop, char delim);
+void parse_vulgar_verbose(string line, bool stop, char delim);
 
 int main()
 {
     char buffer[BUFFER_SIZE];
     string line;
-    int roll = 0;
+    int position = 0;
     bool between = true;
     bool stop = false;
     while(fgets(buffer, BUFFER_SIZE, stdin)){
+
+        // cast the cstring as a string object
         line = buffer;
+
         if(between){
             if(line.length() > 3 && line.substr(2,6) == "Target"){
-                roll = 1; 
+                position = 1; 
                 between = false;
             }
             continue;
         }
 
-        switch(roll % 5) {
+        switch(position % 5) {
             case 2: if(line[0] == 'v'){
-                        parse_vulgar(line, stop);
+                        parse_vulgar_fulltab(line, stop, '\t');
                         between = true;
                         stop = false;
                     }
             case 4: if(line.find('*') != size_t(-1))
                         stop = true;
         }
-        roll++;
+
+        position++;
     }
 }
 
-void parse_vulgar(string line, bool stop){
+void parse_vulgar_fulltab(string line, bool stop, char delim){
     stringstream s(line);
     string word;
     for(int i = 0; i < 10 && s >> word; i++){
         if(i > 0){
-            cout << word << '\t';
+            cout << word << delim;
+        }
+    }
+    cout << stop << delim;
+    bool shifted = false;
+    int nintrons = 0;
+    int splits = 0;
+    int longest_intron = 0;
+    while(s >> word){
+        switch(word[0]){
+            case 'F': shifted = true;
+            case 'I': { nintrons++;
+                        s >> word;
+                        s >> word;
+                        int len = atoi(word.c_str());
+                        if(len > longest_intron)
+                            longest_intron = len;
+                      }
+            case 'S': splits++;
+        }
+    }
+    cout << shifted        << delim
+         << splits         << delim
+         << nintrons       << delim
+         << longest_intron << endl;
+}
+
+void parse_vulgar_simple(string line, bool stop, char delim){
+    stringstream s(line);
+    string word;
+    for(int i = 0; i < 9 && s >> word; i++){
+        if(i > 0){
+            cout << word << delim;
+        }
+    }
+    s >> word;
+    cout << word << endl;
+}
+
+void parse_vulgar_verbose(string line, bool stop, char delim){
+    stringstream s(line);
+    string word;
+    for(int i = 0; i < 10 && s >> word; i++){
+        if(i > 0){
+            cout << word << delim;
         }
     }
     cout << stop << endl;
@@ -59,7 +110,7 @@ void parse_vulgar(string line, bool stop){
             cout << "> ";
         cout << word;
         if(i % 3 != 2){
-            cout << '\t';
+            cout << delim;
         } else {
             cout << endl;
         }
