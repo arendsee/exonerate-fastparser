@@ -1,0 +1,119 @@
+C4 Alignment:
+------------
+         Query: ATCG00740.1
+        Target: scaffold_1
+         Model: protein2genome:local
+     Raw score: 53
+   Query range: 258 -> 274
+  Target range: 27469192 -> 27469240
+
+      259 : AsnLeuArgLysLysLysLysThrLysGluLeuAlaPheGlnTyrIle :      274
+            :!!:!!|||||||||||||||  !::!||||||  !|||  !||||||
+            HisIleArgLysLysLysLysAspArgGluLeuLeuPheThrTyrIle
+ 27469193 : CACATTAGGAAAAAAAAAAAAGACCGGGAACTTTTATTCACATATATT : 27469240
+
+vulgar: ATCG00740.1 258 274 . scaffold_1 27469192 27469240 + 53 M 16 48
+
+C4 Alignment:
+------------
+         Query: ATCG00740.1
+        Target: scaffold_1
+         Model: protein2genome:local
+     Raw score: 52
+   Query range: 256 -> 287
+  Target range: 17414202 -> 17437971
+
+      257 : LeuValAsnLeuArgLysLysLysLysThrLysGluLeu  >>>> Target I :      270
+            :!!  !||||||!:!|||||||||! !! !! !:!!|||           2367
+            IleGlnAsnLeuLysLysLysLysThrLysIleLysLeu++             
+ 17414203 : ATCCAAAATTTAAAAAAAAAAAAAACAAAAATAAAACTCgt............. : 17414244
+
+      271 : ntron 1 >>>>  AlaPheGlnTyrIlePheIleAspGlnLeuGluLeuProP :      283
+            6 bp            !! !.!. !!  !!  :!:|||  !|||.!.|||||||
+                        ++MetSerAsnAsnAspSerLeuAspValLeuAsnLeuProP
+ 17414245 : ............agATGTCTAACAATGACTCATTGGATGTGCTTAACCTACCGC : 17437957
+
+      284 : roArgIleTyrAsn :      287
+            ||||||||||||||
+            roArgIleTyrAsn
+ 17437958 : CCCGTATATATAAT : 17437971
+
+vulgar: ATCG00740.1 256 287 . scaffold_1 17414202 17437971 + 52 M 13 39 5 0 2 I 0 23672 3 0 2 M 18 54
+
+C4 Alignment:
+------------
+         Query: ATCG00740.1
+        Target: scaffold_1
+         Model: protein2genome:local
+     Raw score: 54
+   Query range: 256 -> 294
+  Target range: 30912223 -> 31052050
+
+      257 : LeuValAsnLeuArgLysLysLysLysThrLysGluLeuAlaPheGlnTyr{Il :      274
+            |||:!!:!!! !!:!||||||||||||  !!  |||:!!  !||| ! !::{! 
+            LeuIleHis***LysLysLysLysLysGlnIleGluMetIlePheTyrTrp{Se
+ 30912224 : CTTATACATTAAAAAAAAAAAAAAAAACAGATTGAAATGATTTTCTATTGG{AG : 30912275
+
+      275 : }  >>>> Target Intron 1 >>>>  {e}PheIleAspGlnLeuGluLeu :      281
+            }          139713 bp          {!}  !|||  !|||  !!!:! !
+            }+-                         +-{r}AlaIleLeuGlnThrAspSer
+ 30912276 : }ga.........................ac{T}GCCATTCTTCAAACTGACTCG : 31052009
+
+      282 : ProProArgIleTyrAsnCysLeuLysLysSerAsnIle :      294
+            |||||||||:!!||||||..!  !   ! !:!!|||:!!
+            ProProArgValTyrAsnAlaArgLeuThrAlaAsnLeu
+ 31052010 : CCACCCCGGGTTTATAATGCCAGGCTCACAGCGAACTTA : 31052050
+
+vulgar: ATCG00740.1 256 294 . scaffold_1 30912223 31052050 + 54 M 17 51 S 0 2 5 0 2 I 0 139709 3 0 2 S 1 1 M 20 60
+
+C4 Alignment:
+------------
+         Query: ATCG00740.1
+        Target: scaffold_1
+         Model: protein2genome:local
+     Raw score: 51
+   Query range: 240 -> 264
+  Target range: 12969867 -> 12969939
+
+      241 : AsnAsnGlnHisGlnValThrLeuProPhePheProPheHisAsnArgLeuVal :      258
+            ::!..!..!||||||:!!||||||||||||  !  !.!.:!!..!  !  !:!!
+            SerArgMetHisGlnLeuThrLeuProPheThrAsnMetTyrGly***LysLeu
+ 12969868 : TCCCGCATGCATCAGTTAACTCTGCCTTTCACCAATATGTACGGTTAAAAATTA : 12969919
+
+      259 : AsnLeuArgLysLysLys :      264
+               |||||||||||||||
+            ValLeuArgLysLysLys
+ 12969920 : GTACTTAGAAAGAAAAAA : 12969939
+
+vulgar: ATCG00740.1 240 264 . scaffold_1 12969867 12969939 + 51 M 24 72
+
+C4 Alignment:
+------------
+         Query: ATCG00660.1
+        Target: scaffold_2
+         Model: protein2genome:local
+     Raw score: 89
+   Query range: 44 -> 103
+  Target range: 14437365 -> 14437544
+
+       45 : SerAlaHisArgAspArgGlyLysArgLysArgAspPheArgArg--LeuTrpI :       62
+            !!!  !|||||||||!:!||||||||||||!.!   |||  !! !##|||||||
+            ThrLeuHisArgAspLysGlyLysArgLysAsnArgPheSerLeu##LeuTrpI
+ 14437366 : ACTCTCCATCGGGATAAGGGTAAAAGAAAAAATAGATTTTCACTTGTTTATGGA : 14437419
+
+       63 : leThrArgIleAsnAlaValIleHisGluMetGlyValPheTyrSerTyrAsnG :       80
+            ||||| !!||||||:!!|||||||||||||||||||||.!!!:!! !!  !.! 
+            leThrGlyIleAsnSerValIleHisGluMetGlyValLeuPheLeu***ThrT
+ 14437420 : TCACTGGAATAAATTCCGTAATTCACGAAATGGGGGTACTCTTTTTGTGAACCT : 14437473
+
+       81 : luPheIleHisAsnLeuTyrLysLysGlnLeuLeuLeuAsnArgLysIleLeuA :       98
+            ! !  ! !  !::!  !!  !:!!:!:!!:!!|||! !!:!! !!..:!:|||:
+            yr***SerIleSerThrLeuArgArgLysValLeuArgSerThrSerValLeuS
+ 14437474 : ATTAAAGTATCTCCACTTTGAGAAGAAAAGTCCTTCGTAGTACCAGTGTGCTTA : 14437527
+
+       99 : laGlnIleAlaLeuLeu :      103
+            :!!  :!!  !|||:!!
+            erLeuLeuAsnLeuIle
+ 14437528 : GCCTTCTAAATCTGATA : 14437544
+
+vulgar: ATCG00660.1 44 103 . scaffold_2 14437365 14437544 + 89 M 15 45 F 0 2 M 44 132
