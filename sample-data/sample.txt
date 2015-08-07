@@ -117,3 +117,135 @@ C4 Alignment:
  14437528 : GCCTTCTAAATCTGATA : 14437544
 
 vulgar: ATCG00660.1 44 103 . scaffold_2 14437365 14437544 + 89 M 15 45 F 0 2 M 44 132
+
+C4 Alignment:
+------------
+         Query: AT4G39280.2 pacid=19648220 transcript=AT4G39280.2 locus=AT4G39280 ID=AT4G39280.2.TAIR10 annot-version=TAIR10
+        Target: scaffold_4 [revcomp]
+         Model: protein2genome:local
+     Raw score: 1463
+   Query range: 158 -> 485
+  Target range: 460918 -> 458674
+
+    159 : GlnIleTrpLysGlyTyrSerValLysLysGlyProAsnTyrAlaProGluArgLysL :    178
+          ::!:!!|||||||||||||||:!!||||||||||||||||||||||||:!!|||! !!
+          ArgValTrpLysGlyTyrSerIleLysLysGlyProAsnTyrAlaProLysArgMetS
+ 460918 : AGGGTATGGAAGGGCTATTCCATAAAGAAAGGTCCTAATTATGCTCCCAAAAGAATGA : 460861
+
+    179 : ysValAlaThrAspLeuThrArgGluAsnLeuGln{As}  >>>> Target Intro :    190
+          .. !!||||||||||||:!!|||||||||||||||{||}            86 bp  
+          erPheAlaThrAspLeuSerArgGluAsnLeuGln{As}++                 
+ 460860 : GTTTTGCCACCGACTTGTCACGAGAAAATCTACAA{AA}gt................. : 460821
+
+    191 : n 1 >>>>  {n}TrpLysGluLeuGluPheLysGluTyrAsnPheLysAlaLysGly :    205
+                    {|}|||||||||||||||||||||||||||||||||!!.|||||| !!
+                  ++{n}TrpLysGluLeuGluPheLysGluTyrAsnPheAsnAlaLys***
+ 460820 : ........ag{C}TGGAAAGAGCTAGAATTCAAGGAGTATAACTTCAATGCTAAATGA : 460694
+
+    206 : AlaProValAspAlaGlyHisLeuHisAlaLeuLeuLys  >>>> Target Intro :    219
+            !|||||||||||||||||||||||| !!|||||||||            173 bp 
+          GlnProValAspAlaGlyHisLeuHisProLeuLeuLys++                 
+ 460693 : CAGCCTGTTGATGCTGGACATCTTCACCCCCTTCTCAAGgt................. : 460650
+
+    220 : n 2 >>>>  ValArgLysGlnPheLysAspIlePheValGlnMet{Gl}  >>>> T :    231
+                    |||||||||||||||||||||||||||  !||||||{||}        
+                  ++ValArgLysGlnPheLysAspIlePheArgGlnMet{Gl}++      
+ 460649 : ........agGTACGGAAGCAGTTCAAAGACATATTTCGTCAGATG{GG}gt...... : 460439
+
+    232 : arget Intron 3 >>>>  {y}PheGluGluMetProThrAsnAsnTyrValGluS :    243
+              81 bp            {|}||||||||||||||||||||||||!:!|||||||
+                             ++{y}PheGluGluMetProThrAsnAsnPheValGluS
+ 460438 : ...................ag{A}TTTGAAGAGATGCCAACAAACAACTTTGTGGAGA : 460326
+
+    244 : er{Se}  >>>> Target Intron 4 >>>>  {r}PheTrpAsnPheAspAlaLe :    251
+          ||{||}            195 bp           {|}||||||||||||||||||||
+          er{Se}++                         ++{r}PheTrpAsnPheAspAlaLe
+ 460325 : GC{AG}gt.........................ag{C}TTCTGGAATTTCGATGCACT : 460107
+
+    252 : uPheGlnProGlnGlnHisProAlaArgAspSerHisAspThrPhePheLeuLys{V} :    270
+          |||||||||||||||||||||||||||||||||||||||||||||||||||||||{!}
+          uPheGlnProGlnGlnHisProAlaArgAspSerHisAspThrPhePheLeuLys{A}
+ 460106 : GTTCCAGCCTCAGCAGCATCCTGCTCGTGACTCTCATGACACCTTCTTTCTAAAA{G} : 460050
+
+    271 :   >>>> Target Intron 5 >>>>  {al}ProSerThrThrArgThrLeuProG :    279
+                      119 bp           {.!}|||||||||||||||  !|||||||
+          ++                         ++{la}ProSerThrThrArgGluLeuProG
+ 460049 : gt.........................ag{CT}CCTTCAACTACAAGGGAATTGCCAG : 459904
+
+    280 : luAspTyrValGluArgValLysArgValHisGluSerGlyGlyTyrGlySerArg{G :    298
+          |||||||||||||||||||||||!:!||||||||||||||||||||||||||||||{|
+          luAspTyrValGluArgValLysGlnValHisGluSerGlyGlyTyrGlySerArg{G
+ 459903 : AAGATTATGTTGAGAGGGTGAAACAAGTTCATGAGTCTGGTGGATATGGATCGAGA{G : 459847
+
+    299 : l}  >>>> Target Intron 6 >>>>  {y}TyrAsnTyrAspTrpLysArgGlu :    306
+          |}            85 bp            {|}||||||||||||||||||||||||
+          l}++                         ++{y}TyrAsnTyrAspTrpLysArgGlu
+ 459846 : G}gt.........................ag{G}TATAATTATGATTGGAAAAGAGAG : 459738
+
+    307 : GluAlaAsnLysAsnLeuLeuArgThrHisThrThrAlaValSerSerArgMetLeuT :    326
+          |||||||||||||||||||||||||||||||||||||||!.!||||||||||||||||
+          GluAlaAsnLysAsnLeuLeuArgThrHisThrThrAlaAlaSerSerArgMetLeuT
+ 459737 : GAAGCAAACAAAAACCTCCTTCGTACCCACACAACAGCGGCCTCATCTAGGATGCTTT : 459678
+
+    327 : yrAlaLeuAlaGln  >>>> Target Intron 7 >>>>  LysProPheValPro :    335
+          |||||||||||:!!            96 bp            |||||||||..!|||
+          yrAlaLeuAlaLys++                         ++LysProPheThrPro
+ 459677 : ATGCACTTGCAAAGgt.........................agAAACCTTTCACTCCC : 459555
+
+    336 : LysLysTyrPheSerIleAspArgValPheArgAsnGluAlaValAspArgThrHisL :    355
+          ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+          LysLysTyrPheSerIleAspArgValPheArgAsnGluAlaValAspArgThrHisL
+ 459554 : AAGAAGTACTTTTCTATAGACCGTGTCTTCAGAAACGAGGCTGTTGACCGAACCCATC : 459495
+
+    356 : euAlaGluPheHisGlnIleGlu{G}  >>>> Target Intron 8 >>>>  {ly :    363
+          |||||||||||||||||||||||{|}            84 bp            {||
+          euAlaGluPheHisGlnIleGlu{G}++                         ++{ly
+ 459494 : TGGCAGAGTTCCATCAGATTGAA{G}gt.........................ag{GG : 459386
+
+    364 : }LeuIleCysAspArgGlyLeuThrLeuGlyAspLeuIleGlyValLeuGluAspPhe :    382
+          }|||:!!||||||||||||||||||||||||||||||||||||||||||:!!||||||
+          }LeuValCysAspArgGlyLeuThrLeuGlyAspLeuIleGlyValLeuGlnAspPhe
+ 459385 : }TTGGTCTGTGACCGTGGCCTTACATTGGGTGATCTCATCGGTGTATTACAGGACTTC : 459330
+
+    383 : PheSerArgLeu{G}  >>>> Target Intron 9 >>>>  {ly}MetSerLysL :    391
+          ||||||||||||{|}            93 bp            {||}||||||||||
+          PheSerArgLeu{G}++                         ++{ly}MetSerLysL
+ 459329 : TTCTCACGCTTA{G}gt.........................ag{GG}ATGTCCAAGC : 459210
+
+    392 : euArgPheLysProAlaTyrAsnProTyrThrGluProSerMetGluIlePhe{Se}  :    409
+          |||||||||||||||||||||||||||||||||||||||||||||||||||||{||} 
+          euArgPheLysProAlaTyrAsnProTyrThrGluProSerMetGluIlePhe{Se}+
+ 459209 : TGCGTTTCAAGCCTGCCTACAACCCTTACACCGAACCAAGCATGGAGATTTTC{AG}g : 459154
+
+    410 :  >>>> Target Intron 10 >>>>  {r}TyrHisGluGlyLeuGlyLysTrpVa :    418
+                      83 bp            {|}||||||||||||||||||||||||||
+          +                          ++{r}TyrHisGluGlyLeuGlyLysTrpVa
+ 459153 : t..........................ag{C}TACCACGAAGGATTAGGGAAATGGGT : 459046
+
+    419 : lGluIleGlyAsnSerGlyMetPheArgProGluMetLeuLeuProMetGlyLeuPro :    437
+          ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+          lGluIleGlyAsnSerGlyMetPheArgProGluMetLeuLeuProMetGlyLeuPro
+ 459045 : AGAAATTGGAAACTCTGGCATGTTCAGACCAGAAATGTTGCTACCGATGGGTCTCCCA : 458989
+
+    438 : GluAspValArgValIleAlaTrpGlyLeuSerLeuGlu{Ar}  >>>> Target I :    451
+          |||||||||||||||||||||||||||||||||||||||{||}             87
+          GluAspValArgValIleAlaTrpGlyLeuSerLeuGlu{Ar}++             
+ 458988 : GAGGATGTTCGAGTCATTGCATGGGGTCTCTCTCTTGAA{AG}gt............. : 458943
+
+    452 : ntron 11 >>>>  {g}ProThrMetIleLeuTyrGlyIleAspAsnIleArgAspL :    465
+           bp            {|}||||||||||||||||||! !|||||||||||||||||||
+                       ++{g}ProThrMetIleLeuTyrGluIleAspAsnIleArgAspL
+ 458942 : .............ag{A}CCAACAATGATTTTATACGAGATTGACAACATCCGTGATC : 458818
+
+    466 : euPheGlyHisLys  >>>> Target Intron 12 >>>>  ValAspLeuAspLe :    474
+          ||||||||||||||             81 bp            |||||||||! !||
+          euPheGlyHisLys++                          ++ValAspLeuGlyLe
+ 458817 : TGTTTGGACACAAGgt..........................agGTGGATCTTGGTCT : 458710
+
+    475 : uIleLysArgAsnProIleCysArgValGlyIle :    485
+          |||||||||||||||||||||||||:!!||||||
+          uIleLysArgAsnProIleCysArgIleGlyIle
+ 458709 : CATTAAACGGAATCCGATCTGTCGCATTGGAATC : 458675
+
+vulgar: AT4G39280.2 158 485 . scaffold_4 460918 458674 - 1463 M 31 93 S 0 2 5 0 2 I 0 82 3 0 2 S 1 1 M 28 84 5 0 2 I 0 169 3 0 2 M 12 36 S 0 2 5 0 2 I 0 77 3 0 2 S 1 1 M 12 36 S 0 2 5 0 2 I 0 191 3 0 2 S 1 1 M 25 75 S 0 1 5 0 2 I 0 115 3 0 2 S 1 2 M 27 81 S 0 2 5 0 2 I 0 81 3 0 2 S 1 1 M 32 96 5 0 2 I 0 92 3 0 2 M 32 96 S 0 1 5 0 2 I 0 80 3 0 2 S 1 2 M 23 69 S 0 1 5 0 2 I 0 89 3 0 2 S 1 2 M 21 63 S 0 2 5 0 2 I 0 79 3 0 2 S 1 1 M 41 123 S 0 2 5 0 2 I 0 83 3 0 2 S 1 1 M 18 54 5 0 2 I 0 77 3 0 2 M 16 48
+
