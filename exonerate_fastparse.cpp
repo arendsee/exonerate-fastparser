@@ -64,10 +64,12 @@ void write_fulltab_header(){
          << "target_stop\t"
          << "target_strand\t"
          << "score\t"
+         << "has_nonsense\t"
          << "has_frameshift\t"
          << "num_split_codons\t"
          << "num_intron\t"
-         << "max_intron";
+         << "max_intron"
+         << endl;
 }
 
 void parse_vulgar_fulltab(string line, bool stop, char delim){
