@@ -14,12 +14,14 @@
 #include <iostream>
 using namespace std;
 
-void parse_vulgar_simple(string line, bool stop, char delim);
+void parse_vulgar_simple( string line, bool stop, char delim);
 void parse_vulgar_fulltab(string line, bool stop, char delim);
 void parse_vulgar_verbose(string line, bool stop, char delim);
+void write_fulltab_header();
 
 int main()
 {
+    write_fulltab_header();
     char buffer[BUFFER_SIZE];
     string line;
     int position = 0;
@@ -50,6 +52,22 @@ int main()
 
         position++;
     }
+}
+
+void write_fulltab_header(){
+    cout << "query_seqid\t"
+         << "query_start\t"
+         << "query_stop\t"
+         << "query_strand\t"
+         << "target_contig\t"
+         << "target_start\t"
+         << "target_stop\t"
+         << "target_strand\t"
+         << "score\t"
+         << "has_frameshift\t"
+         << "num_split_codons\t"
+         << "num_intron\t"
+         << "max_intron";
 }
 
 void parse_vulgar_fulltab(string line, bool stop, char delim){
