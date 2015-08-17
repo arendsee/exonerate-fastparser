@@ -1,6 +1,6 @@
 /* exonerate_fastparse.cpp
  * 
- * Reads raw exonerate output, currently only parsing the vulgar line
+ * Reads raw exonerate output (from STDIN)
  *
  */
 
@@ -14,16 +14,18 @@
 #include <iostream>
 using namespace std;
 
-void parse_vulgar_simple( string line, int stop, char delim);
-void parse_vulgar_fulltab(string line, int stop, char delim);
-void parse_vulgar_verbose(string line, int stop, char delim);
+string get_full_header();
+
+string parse_vulgar_simple(string line, int stop, char delim);
+string parse_vulgar_full(string line, int stop, char delim);
+string parse_vulgar_with_introns(string line, int stop, char delim);
+string parse_vulgar_verbose(string line, int stop, char delim);
 int get_first_integer(string line);
 int get_stop_position(string line, int offset);
-void write_fulltab_header();
 
 int main()
 {
-    write_fulltab_header();
+    cout << get_full_header() << endl;
 
     // buffer to hold data input
     char buffer[BUFFER_SIZE];
@@ -61,7 +63,7 @@ int main()
 
         switch(position % 5) {
             case 2: if(line[0] == 'v'){
-                        parse_vulgar_fulltab(line, stop, '\t');
+                        cout << parse_vulgar_full(line, stop, '\t') << endl;
                         between = true;
                         stop = 0;
                     } else {
@@ -103,33 +105,34 @@ int get_first_integer(string line){
     return x;
 }
 
-void write_fulltab_header(){
-    cout << "query_seqid\t"
-         << "query_start\t"
-         << "query_stop\t"
-         << "query_strand\t"
-         << "target_contig\t"
-         << "target_start\t"
-         << "target_stop\t"
-         << "target_strand\t"
-         << "score\t"
-         << "first_stop\t"
-         << "has_frameshift\t"
-         << "num_split_codons\t"
-         << "num_intron\t"
-         << "max_intron"
-         << endl;
+string get_full_header(){
+    string header = "query_seqid\t"      
+                    "query_start\t"      
+                    "query_stop\t"       
+                    "query_strand\t"     
+                    "target_contig\t"    
+                    "target_start\t"     
+                    "target_stop\t"      
+                    "target_strand\t"    
+                    "score\t"            
+                    "first_stop\t"       
+                    "has_frameshift\t"   
+                    "num_split_codons\t" 
+                    "num_intron\t"       
+                    "max_intron";
+    return header;
 }
 
-void parse_vulgar_fulltab(string line, int stop, char delim){
+string parse_vulgar_full(string line, int stop, char delim){
     stringstream s(line);
+    stringstream out;
     string word;
     for(int i = 0; i < 10 && s >> word; i++){
         if(i > 0){
-            cout << word << delim;
+            out << word << delim;
         }
     }
-    cout << stop << delim;
+    out << stop << delim;
     bool shifted = false;
     int nintrons = 0;
     int splits = 0;
@@ -147,41 +150,47 @@ void parse_vulgar_fulltab(string line, int stop, char delim){
             case 'S': splits++;
         }
     }
-    cout << shifted        << delim
-         << splits         << delim
-         << nintrons       << delim
-         << longest_intron << endl;
+    out << shifted  << delim
+        << splits   << delim
+        << nintrons << delim
+        << longest_intron;
+    return out.str();
 }
 
-void parse_vulgar_simple(string line, bool stop, char delim){
+string parse_vulgar_with_introns(string line, int stop, char delim){
+    stringstream out;
+    return out.str();
+}
+
+string parse_vulgar_simple(string line, bool stop, char delim){
     stringstream s(line);
+    stringstream out;
     string word;
     for(int i = 0; i < 9 && s >> word; i++){
         if(i > 0){
-            cout << word << delim;
+            out << word << delim;
         }
     }
     s >> word;
-    cout << word << endl;
+    out << word;
+    return out.str();
 }
 
-void parse_vulgar_verbose(string line, bool stop, char delim){
+string parse_vulgar_verbose(string line, bool stop, char delim){
     stringstream s(line);
+    stringstream out;
     string word;
     for(int i = 0; i < 10 && s >> word; i++){
         if(i > 0){
-            cout << word << delim;
+            out << word << delim;
         }
     }
-    cout << stop << endl;
+    out << stop << endl;
     for(int i = 0; s >> word; i++){
         if(i % 3 == 0)
-            cout << "> ";
-        cout << word;
-        if(i % 3 != 2){
-            cout << delim;
-        } else {
-            cout << endl;
-        }
+            out << "> ";
+        out << word;
+        out << ((i % 3 != 2) ? delim  : '\n');
     }
+    return out.str();
 }
