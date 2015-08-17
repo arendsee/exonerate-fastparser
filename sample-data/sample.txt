@@ -249,3 +249,108 @@ C4 Alignment:
 
 vulgar: AT4G39280.2 158 485 . scaffold_4 460918 458674 - 1463 M 31 93 S 0 2 5 0 2 I 0 82 3 0 2 S 1 1 M 28 84 5 0 2 I 0 169 3 0 2 M 12 36 S 0 2 5 0 2 I 0 77 3 0 2 S 1 1 M 12 36 S 0 2 5 0 2 I 0 191 3 0 2 S 1 1 M 25 75 S 0 1 5 0 2 I 0 115 3 0 2 S 1 2 M 27 81 S 0 2 5 0 2 I 0 81 3 0 2 S 1 1 M 32 96 5 0 2 I 0 92 3 0 2 M 32 96 S 0 1 5 0 2 I 0 80 3 0 2 S 1 2 M 23 69 S 0 1 5 0 2 I 0 89 3 0 2 S 1 2 M 21 63 S 0 2 5 0 2 I 0 79 3 0 2 S 1 1 M 41 123 S 0 2 5 0 2 I 0 83 3 0 2 S 1 1 M 18 54 5 0 2 I 0 77 3 0 2 M 16 48
 
+C4 Alignment:
+------------
+         Query: AT1G01070.2 pacid=19650808 transcript=AT1G01070.2 locus=AT1G01070 ID=AT1G01070.2.TAIR10 annot-version=TAIR10
+        Target: scaffold_1
+         Model: protein2genome:local
+     Raw score: 1425
+   Query range: 1 -> 319
+  Target range: 501611 -> 503469
+
+      2 : LeuIleTyrMetTyrAsnPheAsnGluPheSerLysGluPheLeuLeuLeuLeuAsnA :     21
+          :!!:!!  !!!:|||!:!||||||||||||||||||!!:!:!:!!|||||||||||||
+          IleValIleIleTyrSerPheAsnGluPheSerLysAspTyrValLeuLeuLeuAsnA
+ 501612 : ATTGTTATCATATATAGTTTTAATGAATTTTCTAAAGATTATGTATTATTGTTAAATA : 501669
+
+     22 : rgLysThrArgProGlnIleThrPheArgLeuMetValAspHisPheValSerGlyLe :     40
+          |||||||||||||||||||||||||||||||||||:!!||||||||||||||||||||
+          rgLysThrArgProGlnIleThrPheArgLeuMetIleAspHisPheValSerGlyLe
+ 501670 : GGAAAACAAGACCACAGATAACGTTTAGGCTAATGATCGATCATTTCGTCAGTGGCCT : 501726
+
+     41 : uLeu{Gl}  >>>> Target Intron 1 >>>>  {y}AlaSerLeuMetGlnPhe :     48
+          ||||{||}            189 bp           {|}||||||||||||||||||
+          uLeu{Gl}++                         ++{y}AlaSerLeuMetGlnPhe
+ 501727 : TCTC{GG}gt.........................ag{G}GCGAGTTTGATGCAATTT : 501939
+
+     49 : PhePheLeuLeuGlyLeuSerTyrThrSerAlaThrValSerCysAlaLeuValSerM :     68
+          ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+          PhePheLeuLeuGlyLeuSerTyrThrSerAlaThrValSerCysAlaLeuValSerM
+ 501940 : TTCTTTTTGCTTGGTCTGTCGTACACGTCAGCAACTGTTTCGTGTGCTTTGGTAAGCA : 501999
+
+     69 : etLeuProAlaIleThrPheAlaLeuAlaLeuIlePhe{Ar}  >>>> Target In :     81
+          ||||||||||||||||||||||||||||||||||||||{||}            489 
+          etLeuProAlaIleThrPheAlaLeuAlaLeuIlePhe{Ar}++              
+ 502000 : TGTTGCCTGCAATCACCTTCGCTTTGGCCCTTATTTTC{AG}gt.............. : 502042
+
+     82 : tron 2 >>>>  {g}ThrGluAsnValLysIleLeuLysThrLysAlaGlyMetLeu :     95
+          bp           {|}||||||||||||||||||||||||||||||||||||||||||
+                     ++{g}ThrGluAsnValLysIleLeuLysThrLysAlaGlyMetLeu
+ 502043 : ...........ag{G}ACTGAAAATGTAAAGATTCTAAAGACCAAAGCAGGAATGTTG : 502569
+
+     96 : LysValIleGlyThrLeuIleCysIleSerGlyAlaLeuPheLeuThrPheTyrLysG :    115
+          ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+          LysValIleGlyThrLeuIleCysIleSerGlyAlaLeuPheLeuThrPheTyrLysG
+ 502570 : AAGGTGATTGGAACTTTGATATGTATAAGTGGAGCTTTGTTCTTAACATTTTACAAAG : 502629
+
+    116 : lyProGlnIleSerAsnSerHisSerHisSerHisGlyGlyAlaSerHisAsnAsnAs :    134
+          |||||||||||||||||      |||||||||||||||! !||||||||||||!!.||
+          lyProGlnIleSerAsn------SerHisSerHisGlyGluAlaSerHisAsnLysAs
+ 502630 : GCCCACAAATATCAAAC------TCTCACTCTCACGGAGAGGCTTCCCACAACAAAAA : 502680
+
+    135 : nAspGlnAspLysAlaAsnAsnTrpLeuLeuGlyCysLeuTyrLeuThrIleGlyThr :    153
+          ||||||||||!!.|||||||||||||||||||||||||||||||||||||||||||||
+          nAspGlnAspAsnAlaAsnAsnTrpLeuLeuGlyCysLeuTyrLeuThrIleGlyThr
+ 502681 : CGATCAAGACAACGCCAATAATTGGCTTCTTGGATGTCTTTACTTAACCATAGGAACT : 502737
+
+    154 : ValLeuLeuSerLeuTrpMetLeuPheGlnGlyThrLeuSerIleLysTyrProCysL :    173
+          ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+          ValLeuLeuSerLeuTrpMetLeuPheGlnGlyThrLeuSerIleLysTyrProCysL
+ 502738 : GTGTTGCTATCTCTATGGATGTTGTTTCAAGGGACTTTAAGTATTAAGTACCCTTGCA : 502797
+
+    174 : ysTyrSerSerThrCysLeuMetSerIlePheAlaAlaPheGlnCysAlaLeuLeuSe :    192
+          ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+          ysTyrSerSerThrCysLeuMetSerIlePheAlaAlaPheGlnCysAlaLeuLeuSe
+ 502798 : AATACTCGAGCACTTGTCTTATGTCAATCTTCGCGGCATTCCAATGTGCTCTCTTGAG : 502854
+
+    193 : rLeuTyrLysSerArgAspValAsnAspTrpIleIleAspAspArgPheValIleThr :    211
+          ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+          rLeuTyrLysSerArgAspValAsnAspTrpIleIleAspAspArgPheValIleThr
+ 502855 : TCTTTACAAAAGCAGAGACGTTAATGATTGGATCATCGATGATAGATTCGTGATCACC : 502911
+
+    212 : ValIleIleTyrAla  >>>> Target Intron 3 >>>>  GlyValValGlyGl :    221
+          |||||||||||||||            127 bp           ||||||||||||||
+          ValIleIleTyrAla++                         ++GlyValValGlyGl
+ 502912 : GTCATCATATACGCTgt.........................agGGAGTGGTAGGACA : 503068
+
+    222 : nAlaMetThrThrValAlaThrThrTrpGlyIleLysLysLeuGlyAlaValPheAla :    240
+          |||||||:!!||||||||||||||||||||||||||||||||||||||||||||||||
+          nAlaMetSerThrValAlaThrThrTrpGlyIleLysLysLeuGlyAlaValPheAla
+ 503069 : AGCAATGTCGACGGTAGCAACAACATGGGGGATAAAGAAATTAGGAGCTGTGTTCGCA : 503125
+
+    241 : SerAlaPhePheProLeuThrLeuIleSerAlaThrLeuPheAspPheLeuIleLeuH :    260
+          ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+          SerAlaPhePheProLeuThrLeuIleSerAlaThrLeuPheAspPheLeuIleLeuH
+ 503126 : TCGGCATTTTTTCCACTTACTCTCATTTCGGCTACTCTATTTGATTTCCTAATTTTAC : 503185
+
+    261 : isThrProLeuTyrLeuGly{Se}  >>>> Target Intron 4 >>>>  {r}Va :    268
+          ||||||||||||||||||||{||}            111 bp           {|}||
+          isThrProLeuTyrLeuGly{Se}++                         ++{r}Va
+ 503186 : ACACTCCTTTATACCTTGGA{AG}gt.........................ag{T}GT : 503320
+
+    269 : lIleGlySerLeuValThrIleThrGlyLeuTyrMetPheLeuTrpGlyLysAsnLys :    287
+          ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+          lIleGlySerLeuValThrIleThrGlyLeuTyrMetPheLeuTrpGlyLysAsnLys
+ 503321 : GATTGGATCACTAGTGACCATAACGGGTCTCTACATGTTTTTGTGGGGCAAGAACAAA : 503377
+
+    288 : GluThrGluSerSerThrAlaLeuSerSerGlyMetAspAsnGluAlaGlnTyrThrT :    307
+          |||||||||||||||||||||||||||||| !!||||||||||||||||||      !
+          GluThrGluSerSerThrAlaLeuSerSerArgMetAspAsnGluAlaGln------A
+ 503378 : GAAACGGAATCATCAACTGCATTGTCTTCTCGAATGGATAATGAAGCTCAA------A : 503431
+
+    308 : hrProAsnLysAspAsnAspSerLysSerProVal*** :    319
+          .!  !|||||||||||||||||||||||||||||||||
+          snIleAsnLysAspAsnAspSerLysSerProVal***
+ 503432 : ATATTAATAAGGATAACGACTCTAAGTCGCCCGTTTAA : 503469
+
+vulgar: AT1G01070.2 1 319 . scaffold_1 501611 503469 + 1425 M 40 120 S 0 2 5 0 2 I 0 185 3 0 2 S 1 1 M 38 114 S 0 2 5 0 2 I 0 485 3 0 2 S 1 1 M 39 117 G 2 0 M 94 282 5 0 2 I 0 123 3 0 2 M 50 150 S 0 2 5 0 2 I 0 107 3 0 2 S 1 1 M 37 111 G 2 0 M 13 39
