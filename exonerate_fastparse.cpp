@@ -31,6 +31,7 @@ int main(int argc, char **argv)
 
     int format = 0;
     int c;
+    bool header = true;
 
     while (1) {
         static struct option long_options[] =
@@ -40,10 +41,11 @@ int main(int argc, char **argv)
             {"with-introns", no_argument, &format, 2}, 
             {"verbose",      no_argument, &format, 3},
             {"help",         no_argument, 0, 'h'},
+            {"no-header",    no_argument, 0, 's'},
             {0,0,0,0}
         };
         int option_index = 0;
-        c = getopt_long (argc, argv, "h", long_options, &option_index);
+        c = getopt_long (argc, argv, "hs", long_options, &option_index);
 
         /* Detect the end of the options. */
         if (c == -1)
@@ -52,51 +54,59 @@ int main(int argc, char **argv)
         switch(c) {
             case 0:
                 break;
+            case 's':
+                header = false;
+                break;
             case 'h':
-                cout << "Usage: exonerate-fastparse [options] filename" << endl
-                     << "Format options:" << endl
-                     << "   --simple - writes tabular output with the following columns:" << endl
-                     << "      1. query_seqid"   << endl
-                     << "      2. query_start"   << endl
-                     << "      3. query_stop"    << endl
-                     << "      4. query_strand"  << endl
-                     << "      5. target_seqid"  << endl
-                     << "      6. target_start"  << endl
-                     << "      7. target_stop"   << endl
-                     << "      8. target_strand" << endl
-                     << "      9. score"         << endl
-                     << "   --sans-introns - adds 5 columns to the simple output" << endl
-                     << "      10. first_stop"     << endl
-                     << "      11. has_frameshift" << endl
-                     << "      12. split_codons"   << endl
-                     << "      13. introns"        << endl
-                     << "      14. max_introns"    << endl
-                     << "   --with-introns - adds 1 column to the sans-introns output" << endl
-                     << "      15. intron_lengths - a comma-delimited list of intron lengths" << endl
-                     << "   --verbose\tprints simple tabular output and then one line for each gff entry" << endl;
+                cout << "Usage: exonerate-fastparse [options] filename"                                    << endl
+                     << "Format options:"                                                                  << endl
+                     << "   --simple - writes tabular output with the following columns:"                  << endl
+                     << "      1. query_seqid"                                                             << endl
+                     << "      2. query_start"                                                             << endl
+                     << "      3. query_stop"                                                              << endl
+                     << "      4. query_strand"                                                            << endl
+                     << "      5. target_seqid"                                                            << endl
+                     << "      6. target_start"                                                            << endl
+                     << "      7. target_stop"                                                             << endl
+                     << "      8. target_strand"                                                           << endl
+                     << "      9. score"                                                                   << endl
+                     << "   --sans-introns - adds 5 columns to the simple output"                          << endl
+                     << "      10. first_stop - first stop codon in alignment"                             << endl
+                     << "      11. has_frameshift - is there a frameshift? [01]"                           << endl
+                     << "      12. split_codons - number of codons split by introns"                       << endl
+                     << "      13. introns - total number of introns"                                      << endl
+                     << "      14. max_introns - longest single intron"                                    << endl
+                     << "   --with-introns - adds 1 column to the sans-introns output"                     << endl
+                     << "      15. intron_lengths - a comma-delimited list of intron lengths"              << endl
+                     << "   --verbose - prints simple tabular output and then one line for each gff entry" << endl;
                 return 0;
         }
     }
 
     string (*parse)(string, int, char);
+    string (*get_header)(void);
 
     switch(format) {
         case 0:
-            cout << get_simple_header() << endl;
+            get_header = get_simple_header;
             parse = parse_simple;
             break;
         case 1:
-            cout << get_sans_introns_header() << endl;
+            get_header = get_sans_introns_header;
             parse = parse_sans_introns;
             break;
         case 2:
-            cout << get_with_introns_header() << endl;
+            get_header = get_with_introns_header;
             parse = parse_with_introns;
             break;
         case 3:
+            header = false;
             parse = parse_verbose;
             break;
     }
+
+    if(header)
+        cout << get_header() << endl;
 
     // buffer to hold data input
     char buffer[BUFFER_SIZE];
