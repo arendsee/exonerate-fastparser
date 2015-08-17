@@ -15,6 +15,7 @@
 using namespace std;
 
 string get_full_header();
+string get_with_introns_header();
 
 string parse_vulgar_simple(string line, int stop, char delim);
 string parse_vulgar_full(string line, int stop, char delim);
@@ -25,7 +26,7 @@ int get_stop_position(string line, int offset);
 
 int main()
 {
-    cout << get_full_header() << endl;
+    cout << get_with_introns_header() << endl;
 
     // buffer to hold data input
     char buffer[BUFFER_SIZE];
@@ -63,7 +64,7 @@ int main()
 
         switch(position % 5) {
             case 2: if(line[0] == 'v'){
-                        cout << parse_vulgar_full(line, stop, '\t') << endl;
+                        cout << parse_vulgar_with_introns(line, stop, '\t') << endl;
                         between = true;
                         stop = 0;
                     } else {
@@ -117,9 +118,15 @@ string get_full_header(){
                     "score\t"            
                     "first_stop\t"       
                     "has_frameshift\t"   
-                    "num_split_codons\t" 
-                    "num_intron\t"       
+                    "split_codons\t" 
+                    "introns\t"       
                     "max_intron";
+    return header;
+}
+
+string get_with_introns_header(){
+    string header = get_full_header();
+    header += "\tintron_lengths";
     return header;
 }
 
@@ -159,6 +166,22 @@ string parse_vulgar_full(string line, int stop, char delim){
 
 string parse_vulgar_with_introns(string line, int stop, char delim){
     stringstream out;
+    stringstream s(line);
+    out << parse_vulgar_full(line, stop, delim) << delim;
+    string word;
+    bool has_intron = false;
+    while(s >> word){
+        if(word[0] == 'I'){
+           s >> word;
+           s >> word;
+           if(has_intron)
+               out << ',';
+           out << word;
+           has_intron = true; 
+        }
+    }
+    if(! has_intron)
+        out << '-';
     return out.str();
 }
 
