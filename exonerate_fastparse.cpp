@@ -23,8 +23,11 @@ string parse_simple(string line, int stop, char delim);
 string parse_sans_introns(string line, int stop, char delim);
 string parse_with_introns(string line, int stop, char delim);
 string parse_verbose(string line, int stop, char delim);
+
 int get_first_integer(string line);
 int get_stop_position(string line, int offset);
+
+void print_usage();
 
 int main(int argc, char **argv)
 {
@@ -58,27 +61,7 @@ int main(int argc, char **argv)
                 header = false;
                 break;
             case 'h':
-                cout << "Usage: exonerate-fastparse [options] filename"                                    << endl
-                     << "Format options:"                                                                  << endl
-                     << "   --simple - writes tabular output with the following columns:"                  << endl
-                     << "      1. query_seqid"                                                             << endl
-                     << "      2. query_start"                                                             << endl
-                     << "      3. query_stop"                                                              << endl
-                     << "      4. query_strand"                                                            << endl
-                     << "      5. target_seqid"                                                            << endl
-                     << "      6. target_start"                                                            << endl
-                     << "      7. target_stop"                                                             << endl
-                     << "      8. target_strand"                                                           << endl
-                     << "      9. score"                                                                   << endl
-                     << "   --sans-introns - adds 5 columns to the simple output"                          << endl
-                     << "      10. first_stop - first stop codon in alignment"                             << endl
-                     << "      11. has_frameshift - is there a frameshift? [01]"                           << endl
-                     << "      12. split_codons - number of codons split by introns"                       << endl
-                     << "      13. introns - total number of introns"                                      << endl
-                     << "      14. max_introns - longest single intron"                                    << endl
-                     << "   --with-introns - adds 1 column to the sans-introns output"                     << endl
-                     << "      15. intron_lengths - a comma-delimited list of intron lengths"              << endl
-                     << "   --verbose - prints simple tabular output and then one line for each gff entry" << endl;
+                print_usage();
                 return 0;
         }
     }
@@ -306,4 +289,28 @@ string parse_verbose(string line, int stop, char delim){
         out << ((i % 3 != 2) ? delim  : '\n');
     }
     return out.str();
+}
+
+void print_usage(){
+    cerr << "Usage: exonerate-fastparse [options] filename\n"
+            "Format options:\n"
+            "   --simple - writes tabular output with the following columns:\n"
+            "      1. query_seqid\n"
+            "      2. query_start\n"
+            "      3. query_stop\n"
+            "      4. query_strand\n"
+            "      5. target_seqid\n"
+            "      6. target_start\n"
+            "      7. target_stop\n"
+            "      8. target_strand\n"
+            "      9. score\n"
+            "   --sans-introns - adds 5 columns to the simple output\n"
+            "      10. first_stop - first stop codon in alignment\n"
+            "      11. has_frameshift - is there a frameshift? [01]\n"
+            "      12. split_codons - number of codons split by introns\n"
+            "      13. introns - total number of introns\n"
+            "      14. max_introns - longest single intron\n"
+            "   --with-introns - adds 1 column to the sans-introns output\n"
+            "      15. intron_lengths - a comma-delimited list of intron lengths\n"
+            "   --verbose - prints simple tabular output and then one line for each gff entry\n";
 }
