@@ -12,21 +12,91 @@
 #include <string.h>
 #include <sstream>
 #include <iostream>
+#include <getopt.h>
 using namespace std;
 
-string get_full_header();
+string get_sans_introns_header();
 string get_with_introns_header();
+string get_simple_header();
 
-string parse_vulgar_simple(string line, int stop, char delim);
-string parse_vulgar_full(string line, int stop, char delim);
-string parse_vulgar_with_introns(string line, int stop, char delim);
-string parse_vulgar_verbose(string line, int stop, char delim);
+string parse_simple(string line, int stop, char delim);
+string parse_sans_introns(string line, int stop, char delim);
+string parse_with_introns(string line, int stop, char delim);
+string parse_verbose(string line, int stop, char delim);
 int get_first_integer(string line);
 int get_stop_position(string line, int offset);
 
-int main()
+int main(int argc, char **argv)
 {
-    cout << get_with_introns_header() << endl;
+
+    int format = 0;
+    int c;
+
+    while (1) {
+        static struct option long_options[] =
+        {
+            {"simple",       no_argument, &format, 0}, 
+            {"sans-introns", no_argument, &format, 1}, 
+            {"with-introns", no_argument, &format, 2}, 
+            {"verbose",      no_argument, &format, 3},
+            {"help",         no_argument, 0, 'h'},
+            {0,0,0,0}
+        };
+        int option_index = 0;
+        c = getopt_long (argc, argv, "h", long_options, &option_index);
+
+        /* Detect the end of the options. */
+        if (c == -1)
+            break;
+
+        switch(c) {
+            case 0:
+                break;
+            case 'h':
+                cout << "Usage: exonerate-fastparse [options] filename" << endl
+                     << "Format options:" << endl
+                     << "   --simple - writes tabular output with the following columns:" << endl
+                     << "      1. query_seqid"   << endl
+                     << "      2. query_start"   << endl
+                     << "      3. query_stop"    << endl
+                     << "      4. query_strand"  << endl
+                     << "      5. target_seqid"  << endl
+                     << "      6. target_start"  << endl
+                     << "      7. target_stop"   << endl
+                     << "      8. target_strand" << endl
+                     << "      9. score"         << endl
+                     << "   --sans-introns - adds 5 columns to the simple output" << endl
+                     << "      10. first_stop"     << endl
+                     << "      11. has_frameshift" << endl
+                     << "      12. split_codons"   << endl
+                     << "      13. introns"        << endl
+                     << "      14. max_introns"    << endl
+                     << "   --with-introns - adds 1 column to the sans-introns output" << endl
+                     << "      15. intron_lengths - a comma-delimited list of intron lengths" << endl
+                     << "   --verbose\tprints simple tabular output and then one line for each gff entry" << endl;
+                return 0;
+        }
+    }
+
+    string (*parse)(string, int, char);
+
+    switch(format) {
+        case 0:
+            cout << get_simple_header() << endl;
+            parse = parse_simple;
+            break;
+        case 1:
+            cout << get_sans_introns_header() << endl;
+            parse = parse_sans_introns;
+            break;
+        case 2:
+            cout << get_with_introns_header() << endl;
+            parse = parse_with_introns;
+            break;
+        case 3:
+            parse = parse_verbose;
+            break;
+    }
 
     // buffer to hold data input
     char buffer[BUFFER_SIZE];
@@ -64,7 +134,7 @@ int main()
 
         switch(position % 5) {
             case 2: if(line[0] == 'v'){
-                        cout << parse_vulgar_with_introns(line, stop, '\t') << endl;
+                        cout << parse(line, stop, '\t') << endl;
                         between = true;
                         stop = 0;
                     } else {
@@ -108,7 +178,7 @@ int get_first_integer(string line){
     return x;
 }
 
-string get_full_header(){
+string get_simple_header(){
     string header = "query_seqid\t"      
                     "query_start\t"      
                     "query_stop\t"       
@@ -117,22 +187,27 @@ string get_full_header(){
                     "target_start\t"     
                     "target_stop\t"      
                     "target_strand\t"    
-                    "score\t"            
-                    "first_stop\t"       
-                    "has_frameshift\t"   
-                    "split_codons\t" 
-                    "introns\t"       
-                    "max_intron";
+                    "score\t";
+    return header;
+}
+
+string get_sans_introns_header(){
+    string header = get_simple_header();
+    header += "first_stop\t"       
+              "has_frameshift\t"   
+              "split_codons\t" 
+              "introns\t"       
+              "max_intron";
     return header;
 }
 
 string get_with_introns_header(){
-    string header = get_full_header();
+    string header = get_sans_introns_header();
     header += "\tintron_lengths";
     return header;
 }
 
-string parse_vulgar_full(string line, int stop, char delim){
+string parse_sans_introns(string line, int stop, char delim){
     stringstream s(line);
     stringstream out;
     string word;
@@ -169,10 +244,10 @@ string parse_vulgar_full(string line, int stop, char delim){
     return out.str();
 }
 
-string parse_vulgar_with_introns(string line, int stop, char delim){
+string parse_with_introns(string line, int stop, char delim){
     stringstream out;
     stringstream s(line);
-    out << parse_vulgar_full(line, stop, delim) << delim;
+    out << parse_sans_introns(line, stop, delim) << delim;
     string word;
     bool has_intron = false;
     while(s >> word){
@@ -190,7 +265,7 @@ string parse_vulgar_with_introns(string line, int stop, char delim){
     return out.str();
 }
 
-string parse_vulgar_simple(string line, bool stop, char delim){
+string parse_simple(string line, int stop, char delim){
     stringstream s(line);
     stringstream out;
     string word;
@@ -204,7 +279,7 @@ string parse_vulgar_simple(string line, bool stop, char delim){
     return out.str();
 }
 
-string parse_vulgar_verbose(string line, bool stop, char delim){
+string parse_verbose(string line, int stop, char delim){
     stringstream s(line);
     stringstream out;
     string word;
