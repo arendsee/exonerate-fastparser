@@ -70,12 +70,14 @@ int main()
                     } else {
                         running_position = get_first_integer(line);
                     }
+                    break;
             case 4: if(stop == 0) {
                         tmp_stop = get_stop_position(line, running_position);
                         if(tmp_stop != 0 && stop == 0){
                             stop = tmp_stop; 
                         }
                     }
+                    break;
         }
 
         position++;
@@ -147,6 +149,7 @@ string parse_vulgar_full(string line, int stop, char delim){
     while(s >> word){
         switch(word[0]){
             case 'F': shifted = true;
+                      break;
             case 'I': { nintrons++;
                         s >> word;
                         s >> word;
@@ -154,7 +157,9 @@ string parse_vulgar_full(string line, int stop, char delim){
                         if(len > longest_intron)
                             longest_intron = len;
                       }
+                      break;
             case 'S': splits++;
+                      break;
         }
     }
     out << shifted  << delim
